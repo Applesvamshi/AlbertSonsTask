@@ -18,7 +18,7 @@ class UserViewModel: ObservableObject {
     func fetchUsers() {
         isLoading = true
         error = nil
-        let url = URL(string: "https://www.jsonkeeper.com/b/6JS0")
+        let url = URL(string: constants.baseUrl)
         NetworkManager.shared.request(url: url, method: .get) { [weak self] (result: Result<Responsedata, NetworkError>) in
             DispatchQueue.main.async {
                 self?.isLoading = false
